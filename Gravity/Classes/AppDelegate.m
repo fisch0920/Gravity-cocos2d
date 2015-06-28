@@ -24,7 +24,7 @@
 	// If you want more flexibility, you can configure Cocos2D yourself instead of calling setupCocos2dWithOptions:.
 	[self setupCocos2dWithOptions:@{
 		// Show the FPS and draw call label.
-		CCSetupShowDebugStats: @(YES),
+		CCSetupShowDebugStats: @(NO),
 		
 		// More examples of options you might want to fiddle with:
 		// (See CCAppDelegate.h for more information)
@@ -34,7 +34,7 @@
 		// Use a simplified coordinate system that is shared across devices.
 //		CCSetupScreenMode: CCScreenModeFixed,
 		// Run in portrait mode.
-//		CCSetupScreenOrientation: CCScreenOrientationPortrait,
+		CCSetupScreenOrientation: CCScreenOrientationPortrait,
 		// Run at a reduced framerate.
 //		CCSetupAnimationInterval: @(1.0/30.0),
 		// Run the fixed timestep extra fast.
@@ -49,7 +49,7 @@
 -(CCScene *)startScene
 {
 	// This method should return the very first scene to be run when your app starts.
-	return [IntroScene scene];
+	return [HelloWorldScene scene];
 }
 
 @end

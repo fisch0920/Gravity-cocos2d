@@ -9,115 +9,199 @@
 
 #import "HelloWorldScene.h"
 #import "IntroScene.h"
-
-// -----------------------------------------------------------------------
-#pragma mark - HelloWorldScene
-// -----------------------------------------------------------------------
+#import "GravitationalBody.h"
+#import "GravitationalBodyNode.h"
 
 @implementation HelloWorldScene
 {
-    CCSprite *_sprite;
+    CCPhysicsNode *_physicsWorld;
+    GravitationalBody *_body;
+    
+    UISlider *_slider;
+    GravitationalBodyNode *_node;
 }
 
-// -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
-// -----------------------------------------------------------------------
 
 + (HelloWorldScene *)scene
 {
     return [[self alloc] init];
 }
 
-// -----------------------------------------------------------------------
-
 - (id)init
 {
-    // Apple recommend assigning self with supers return value
-    self = [super init];
-    if (!self) return(nil);
+    if (self = [super init]) {
+        self.userInteractionEnabled = YES;
+        
+        CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:1.0f]];
+        [self addChild:background];
+        
+        _physicsWorld = [CCPhysicsNode node];
+//        _physicsWorld.gravity = ccp(0, -1);
+        _physicsWorld.debugDraw = YES;
+        _physicsWorld.collisionDelegate = self;
+        _physicsWorld.positionType = CCPositionTypeNormalized;
+        _physicsWorld.position = ccp(0.5, 0.5);
+        [self addChild:_physicsWorld];
+        
+//        for (int i = 0; i < 12; ++i) {
+//            GravitationalBody *body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0/3.2];
+//            body.position = ccp(CCRANDOM_MINUS1_1() * 100, CCRANDOM_MINUS1_1() * 250);
+//            body.color = [CCColor colorWithRed:CCRANDOM_0_1() / 10.0 green:0.0 blue:0.0];
+//            [_physicsWorld addChild:body];
+//        }
+        
+//        _body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0/3.2];
+//        _body.position = ccp(-160, -80);
+//        _body.color = [CCColor colorWithRed:0.1 green:0.0 blue:0.0];
+//        [_physicsWorld addChild:_body];
+//        
+//        _body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0/4.0];
+//        _body.position = ccp(-160, 80);
+//        _body.color = [CCColor colorWithRed:0.1 green:0.0 blue:0.0];
+//        [_physicsWorld addChild:_body];
+//
+        
+        // 50 works well too
+        _body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0 / 1.2];
+        _body.position = ccp(0, 0);
+        _body.color = [CCColor colorWithRed:0.0 green:0.0 blue:0.0];
+        
+//        _body.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:100 andCenter:_body.position];
+//        _body.physicsBody.collisionGroup = [GravitationalBody class];
+//        _body.physicsBody.affectedByGravity = YES;
+        
+        [_physicsWorld addChild:_body];
+//
+//        _body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0/2.2];
+//        _body.color = [CCColor colorWithRed:0.1 green:0.0 blue:0.0];
+//        _body.position = ccp(160, 80);
+//        [_physicsWorld addChild:_body];
+//        
+//        _body = [[GravitationalBody alloc] initWithNumNodes:75 andRadius:100 andScaleFactor:1.0/2.35];
+//        _body.color = [CCColor colorWithRed:0.1 green:0.0 blue:0.0];
+//        _body.position = ccp(160, -80);
+//        [_physicsWorld addChild:_body];
+        
+//        CGPoint *points = malloc(sizeof(CGPoint) * 3);
+//        points[0] = ccp(-80, -80);
+//        points[1] = ccp(80, -80);
+//        points[2] = ccp(0, 80);
+//        
+//        CCNode *boundary = [CCNode node];
+//        boundary.physicsBody = [CCPhysicsBody bodyWithPolylineFromPoints:points count:3 cornerRadius:1.0 looped:YES];
+//        [_physicsWorld addChild:boundary];
+        
+        CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+        backButton.positionType = CCPositionTypeNormalized;
+        backButton.position = ccp(0.85f, 0.95f);
+        [backButton setTarget:self selector:@selector(onBackClicked:)];
+        [self addChild:backButton];
+    }
     
-    // Enable touch handling on scene node
-    self.userInteractionEnabled = YES;
-    
-    // Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
-    [self addChild:background];
-    
-    // Add a sprite
-    _sprite = [CCSprite spriteWithImageNamed:@"Icon-72.png"];
-    _sprite.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
-    [self addChild:_sprite];
-    
-    // Animate sprite with action
-    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
-    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
-    
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
-
-    // done
 	return self;
 }
 
-// -----------------------------------------------------------------------
-
-- (void)dealloc
+- (void)thresholdSliderChanged:(id)sender
 {
-    // clean up code goes here
+    for (CCNode *node in _physicsWorld.children) {
+        if ([node isKindOfClass:[GravitationalBody class]]) {
+            GravitationalBody *body = (GravitationalBody*)node;
+            
+            body.threshold = ((UISlider*)sender).value;
+        }
+    }
 }
-
-// -----------------------------------------------------------------------
-#pragma mark - Enter & Exit
-// -----------------------------------------------------------------------
 
 - (void)onEnter
 {
-    // always call super onEnter first
     [super onEnter];
     
-    // In pre-v3, touch enable and scheduleUpdate was called here
-    // In v3, touch is enabled by setting userInterActionEnabled for the individual nodes
-    // Per frame update is automatically enabled, if update is overridden
-    
+    _slider = [[UISlider alloc] initWithFrame:CGRectMake(8, self.boundingBox.size.height - 40, self.boundingBox.size.width / 2 - 16, 30)];
+    [_slider setMinimumValue:0.0];
+    [_slider setMaximumValue:0.995];
+    [_slider setValue:0.91];
+    [_slider addTarget:self action:@selector(thresholdSliderChanged:) forControlEvents:UIControlEventValueChanged];
+    _slider.backgroundColor = [UIColor clearColor];
+    [[[CCDirector sharedDirector] view] addSubview:_slider];
 }
-
-// -----------------------------------------------------------------------
 
 - (void)onExit
 {
-    // always call super onExit last
+    [_slider removeFromSuperview];
+    _slider = nil;
+    
     [super onExit];
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Touch Handler
-// -----------------------------------------------------------------------
+//-(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    GravitationalBodyNode *node = [[GravitationalBodyNode alloc] init];
+//    CGPoint pos = ccpMult([touch locationInNode:_body], 0.5);
+//    
+//    node.position = pos;
+//    node.radius = 60;
+//    node.color = [CCColor greenColor];
+//    node.debug = YES;
+//    
+//    node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:node.radius andCenter:node.position];
+//    node.physicsBody.mass = node.radius;
+//    node.physicsBody.type = CCPhysicsBodyTypeStatic;
+//    
+//    _node = node;
+//    [_body addChild:node];
+////    self.paused = !self.paused;
+//}
+//
+//- (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    [_body removeChild:_node];
+//    GravitationalBodyNode *node = [[GravitationalBodyNode alloc] init];
+//    
+//    CGPoint pos = ccpMult([touch locationInNode:_body], 0.5);
+//    node.position = pos;
+//    node.radius = 60;
+//    node.color = [CCColor greenColor];
+//    node.debug = YES;
+//    
+//    node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:node.radius andCenter:node.position];
+//    node.physicsBody.mass = node.radius;
+//    node.physicsBody.type = CCPhysicsBodyTypeStatic;
+//    
+//    _node = node;
+//    [_body addChild:node];
+//}
+//
+//- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    [_body removeChild:_node];
+//    _node = nil;
+//}
 
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLoc = [touch locationInNode:self];
-    
-    // Log touch location
-    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
-    
-    // Move our sprite to touch location
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
-    [_sprite runAction:actionMove];
+-(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    for (CCNode *node in _physicsWorld.children) {
+        if ([node isKindOfClass:[GravitationalBody class]]) {
+            GravitationalBody *body = (GravitationalBody*)node;
+            body.compression = 1;
+        }
+    }
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Button Callbacks
-// -----------------------------------------------------------------------
+- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    for (CCNode *node in _physicsWorld.children) {
+        if ([node isKindOfClass:[GravitationalBody class]]) {
+            GravitationalBody *body = (GravitationalBody*)node;
+            body.compression = 0;
+        }
+    }
+}
 
 - (void)onBackClicked:(id)sender
 {
-    // back to intro scene with transition
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.3]];
 }
 
-// -----------------------------------------------------------------------
 @end

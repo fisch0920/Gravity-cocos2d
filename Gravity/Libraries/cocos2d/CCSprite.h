@@ -301,4 +301,6 @@
  */
 - (void)setTextureRect:(CGRect)rect rotated:(BOOL)rotated untrimmedSize:(CGSize)size;
 
+- (void)draw2;
+
 @end

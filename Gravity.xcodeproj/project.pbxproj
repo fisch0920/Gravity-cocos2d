@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D14018918E535AF0034147D /* GravitationalBodyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14018818E535AF0034147D /* GravitationalBodyCache.m */; };
+		3D14FEB418DD21830034147D /* GravitationalBodyNode.vs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB318DD21830034147D /* GravitationalBodyNode.vs */; };
+		3D14FEB618DD218C0034147D /* GravitationalBodyNode.fs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB518DD218C0034147D /* GravitationalBodyNode.fs */; };
+		3D14FEB818E22C3C0034147D /* temp in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB718E22C3C0034147D /* temp */; };
+		3D14FEBA18E233570034147D /* GravitationalBody.vs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB918E233570034147D /* GravitationalBody.vs */; };
+		3D14FEBC18E233600034147D /* GravitationalBody.fs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEBB18E233600034147D /* GravitationalBody.fs */; };
+		3DB9EE381B40B1D100244F20 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB9EE371B40B1D100244F20 /* libz.dylib */; };
+		3DC3952218D7753F00EB911F /* GravitationalBodyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3952118D7753F00EB911F /* GravitationalBodyNode.m */; };
 		3DD704CF18D393F500C4135E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD704CE18D393F500C4135E /* QuartzCore.framework */; };
 		3DD704D118D393F500C4135E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD704D018D393F500C4135E /* OpenGLES.framework */; };
 		3DD704D318D393F500C4135E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD704D218D393F500C4135E /* OpenAL.framework */; };
@@ -212,6 +220,7 @@
 		3DD7077818D393F700C4135E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7077718D393F700C4135E /* AppDelegate.m */; };
 		3DD7077B18D393F700C4135E /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7077A18D393F700C4135E /* HelloWorldScene.m */; };
 		3DD7077E18D393F700C4135E /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7077D18D393F700C4135E /* IntroScene.m */; };
+		3DD7078918D3960F00C4135E /* GravitationalBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7078818D3960F00C4135E /* GravitationalBody.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +234,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D14018718E535AF0034147D /* GravitationalBodyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravitationalBodyCache.h; sourceTree = "<group>"; };
+		3D14018818E535AF0034147D /* GravitationalBodyCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravitationalBodyCache.m; sourceTree = "<group>"; };
+		3D14FEB318DD21830034147D /* GravitationalBodyNode.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBodyNode.vs; sourceTree = "<group>"; };
+		3D14FEB518DD218C0034147D /* GravitationalBodyNode.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBodyNode.fs; sourceTree = "<group>"; };
+		3D14FEB718E22C3C0034147D /* temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp; sourceTree = "<group>"; };
+		3D14FEB918E233570034147D /* GravitationalBody.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBody.vs; sourceTree = "<group>"; };
+		3D14FEBB18E233600034147D /* GravitationalBody.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBody.fs; sourceTree = "<group>"; };
+		3DB9EE371B40B1D100244F20 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3DC3952018D7753F00EB911F /* GravitationalBodyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravitationalBodyNode.h; sourceTree = "<group>"; };
+		3DC3952118D7753F00EB911F /* GravitationalBodyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravitationalBodyNode.m; sourceTree = "<group>"; };
 		3DD704CB18D393F500C4135E /* Gravity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gravity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD704CE18D393F500C4135E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3DD704D018D393F500C4135E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -653,6 +672,8 @@
 		3DD7077A18D393F700C4135E /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
 		3DD7077C18D393F700C4135E /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		3DD7077D18D393F700C4135E /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		3DD7078718D3960F00C4135E /* GravitationalBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravitationalBody.h; sourceTree = "<group>"; };
+		3DD7078818D3960F00C4135E /* GravitationalBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravitationalBody.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +681,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB9EE381B40B1D100244F20 /* libz.dylib in Frameworks */,
 				3DD704E518D393F500C4135E /* libObjectiveChipmunk.a in Frameworks */,
 				3DD704D318D393F500C4135E /* OpenAL.framework in Frameworks */,
 				3DD704D918D393F500C4135E /* UIKit.framework in Frameworks */,
@@ -697,6 +719,7 @@
 		3DD704CD18D393F500C4135E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DB9EE371B40B1D100244F20 /* libz.dylib */,
 				3DD704CE18D393F500C4135E /* QuartzCore.framework */,
 				3DD704D018D393F500C4135E /* OpenGLES.framework */,
 				3DD704D218D393F500C4135E /* OpenAL.framework */,
@@ -724,6 +747,10 @@
 		3DD704E718D393F500C4135E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3D14FEB318DD21830034147D /* GravitationalBodyNode.vs */,
+				3D14FEB518DD218C0034147D /* GravitationalBodyNode.fs */,
+				3D14FEB918E233570034147D /* GravitationalBody.vs */,
+				3D14FEBB18E233600034147D /* GravitationalBody.fs */,
 				3DD704E818D393F500C4135E /* Default.png */,
 				3DD704EA18D393F500C4135E /* Default@2x.png */,
 				3DD704EC18D393F500C4135E /* Default-568h@2x.png */,
@@ -1531,6 +1558,7 @@
 		3DD7077118D393F700C4135E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D14FEB718E22C3C0034147D /* temp */,
 				3DD7077218D393F700C4135E /* Prefix.pch */,
 				3DD7077318D393F700C4135E /* main.m */,
 			);
@@ -1542,10 +1570,16 @@
 			children = (
 				3DD7077618D393F700C4135E /* AppDelegate.h */,
 				3DD7077718D393F700C4135E /* AppDelegate.m */,
-				3DD7077918D393F700C4135E /* HelloWorldScene.h */,
-				3DD7077A18D393F700C4135E /* HelloWorldScene.m */,
 				3DD7077C18D393F700C4135E /* IntroScene.h */,
 				3DD7077D18D393F700C4135E /* IntroScene.m */,
+				3DD7077918D393F700C4135E /* HelloWorldScene.h */,
+				3DD7077A18D393F700C4135E /* HelloWorldScene.m */,
+				3DD7078718D3960F00C4135E /* GravitationalBody.h */,
+				3DD7078818D3960F00C4135E /* GravitationalBody.m */,
+				3DC3952018D7753F00EB911F /* GravitationalBodyNode.h */,
+				3DC3952118D7753F00EB911F /* GravitationalBodyNode.m */,
+				3D14018718E535AF0034147D /* GravitationalBodyCache.h */,
+				3D14018818E535AF0034147D /* GravitationalBodyCache.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1594,6 +1628,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Transitive Bullshit";
+				TargetAttributes = {
+					3DD704CA18D393F500C4135E = {
+						DevelopmentTeam = F5FXT939T3;
+					};
+				};
 			};
 			buildConfigurationList = 3DD704C618D393F500C4135E /* Build configuration list for PBXProject "Gravity" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1621,11 +1660,14 @@
 				3DD704EB18D393F500C4135E /* Default@2x.png in Resources */,
 				3DD704FE18D393F500C4135E /* Icon-120.png in Resources */,
 				3DD7070218D393F700C4135E /* LICENSE_CCBReader.txt in Resources */,
+				3D14FEB818E22C3C0034147D /* temp in Resources */,
 				3DD704F418D393F500C4135E /* Icon@2x.png in Resources */,
 				3DD7050618D393F500C4135E /* Icon-Small@2x.png in Resources */,
+				3D14FEB418DD21830034147D /* GravitationalBodyNode.vs in Resources */,
 				3DD704F818D393F500C4135E /* Icon-72@2x.png in Resources */,
 				3DD704E918D393F500C4135E /* Default.png in Resources */,
 				3DD704F218D393F500C4135E /* Icon.png in Resources */,
+				3D14FEBC18E233600034147D /* GravitationalBody.fs in Resources */,
 				3DD7050018D393F500C4135E /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				3DD704EF18D393F500C4135E /* Default-Landscape~ipad.png in Resources */,
 				3DD7050418D393F500C4135E /* Icon-Small.png in Resources */,
@@ -1634,8 +1676,10 @@
 				3DD704F618D393F500C4135E /* Icon-72.png in Resources */,
 				3DD7064418D393F600C4135E /* LICENSE_cocos2d.txt in Resources */,
 				3DD704ED18D393F500C4135E /* Default-568h@2x.png in Resources */,
+				3D14FEBA18E233570034147D /* GravitationalBody.vs in Resources */,
 				3DD7050D18D393F500C4135E /* iTunesArtwork in Resources */,
 				3DD7050818D393F500C4135E /* Icon-Spotlight-iOS7.png in Resources */,
+				3D14FEB618DD218C0034147D /* GravitationalBodyNode.fs in Resources */,
 				3DD704FC18D393F500C4135E /* Icon-76@2x.png in Resources */,
 				3DD7077018D393F700C4135E /* LICENSE_Chipmunk.txt in Resources */,
 				3DD7050A18D393F500C4135E /* Icon-Spotlight-iOS7@2x.png in Resources */,
@@ -1660,6 +1704,7 @@
 				3DD7060F18D393F600C4135E /* CCGLView.m in Sources */,
 				3DD706D918D393F600C4135E /* mat4.c in Sources */,
 				3DD7053518D393F500C4135E /* CCAtlasNode.m in Sources */,
+				3DD7078918D3960F00C4135E /* GravitationalBody.m in Sources */,
 				3DD7068318D393F600C4135E /* OpenALManager.m in Sources */,
 				3DD7068F18D393F600C4135E /* IOSVersion.m in Sources */,
 				3DD7054418D393F500C4135E /* CCDirector.m in Sources */,
@@ -1702,6 +1747,7 @@
 				3DD706D718D393F600C4135E /* mat3.c in Sources */,
 				3DD705E318D393F600C4135E /* CCTiledMap.m in Sources */,
 				3DD706A818D393F600C4135E /* CCControl.m in Sources */,
+				3DC3952218D7753F00EB911F /* GravitationalBodyNode.m in Sources */,
 				3DD7062A18D393F600C4135E /* CCVertex.m in Sources */,
 				3DD7066618D393F600C4135E /* ALBuffer.m in Sources */,
 				3DD7063318D393F600C4135E /* NSThread+performBlock.m in Sources */,
@@ -1715,6 +1761,7 @@
 				3DD7056E18D393F500C4135E /* CCMotionStreak.m in Sources */,
 				3DD7051E18D393F500C4135E /* CCActionInstant.m in Sources */,
 				3DD7061818D393F600C4135E /* base64.c in Sources */,
+				3D14018918E535AF0034147D /* GravitationalBodyCache.m in Sources */,
 				3DD7065718D393F600C4135E /* OALAudioTrack.m in Sources */,
 				3DD7059A18D393F500C4135E /* CCProgressNode.m in Sources */,
 				3DD7058D18D393F500C4135E /* CCPhysicsBody.m in Sources */,
@@ -1890,7 +1937,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -1907,7 +1953,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
@@ -1924,23 +1969,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gravity/Supporting Files/Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/kazmath/include\"",
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/chipmunk/include\"",
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Gravity/Libraries/kazmath/include",
+					"$(SRCROOT)/Gravity/Libraries/cocos2d",
+					"$(SRCROOT)/Gravity/Libraries/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Gravity/Libraries/Chipmunk/chipmunk/include",
 				);
 				INFOPLIST_FILE = Gravity/Resources/Info.plist;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3",
-					"-ObjC",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1949,22 +1994,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gravity/Supporting Files/Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/kazmath/include\"",
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/chipmunk/include\"",
-					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Gravity/Libraries/kazmath/include",
+					"$(SRCROOT)/Gravity/Libraries/cocos2d",
+					"$(SRCROOT)/Gravity/Libraries/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Gravity/Libraries/Chipmunk/chipmunk/include",
 				);
 				INFOPLIST_FILE = Gravity/Resources/Info.plist;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lsqlite3",
-					"-ObjC",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1989,6 +2034,7 @@
 				3DD7078318D393F700C4135E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DD7078418D393F700C4135E /* Build configuration list for PBXNativeTarget "Gravity" */ = {
 			isa = XCConfigurationList;
@@ -1997,6 +2043,7 @@
 				3DD7078618D393F700C4135E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

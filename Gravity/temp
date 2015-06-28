@@ -1,0 +1,30 @@
+int size = 64;
+        ccColor4B *data = (ccColor4B*)malloc(sizeof(ccColor4B) * size * size);
+        CGFloat half = size / 2;
+        
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                int o = i * size + j;
+                
+                CGFloat distsq = cpvlengthsq(cpv(half - i, half - j));
+                CGFloat value = (distsq * (distsq - 1)) + 0.25;
+                
+            }
+        }
+        
+        CCTexture *tex = [[CCTexture alloc] initWithData:data pixelFormat:CCTexturePixelFormat_RGBA8888 pixelsWide:size pixelsHigh:size contentSizeInPixels:CGSizeMake(size, size) contentScale:1.0];
+
+
+
+    ccDrawColor4F(self.color.red, self.color.green, self.color.blue, self.color.alpha);
+    ccDrawSolidCircle(CGPointZero, self.radius, 16);
+
+
+        //        NSLog(@"pLog: %@", [self._program programLog]);
+        //        NSLog(@"vLog: %@", [self._program vertexShaderLog]);
+        //        NSLog(@"fLog: %@", [self._program fragmentShaderLog]);
+
+
+//        _body.positionType = CCPositionTypeNormalized;
+//        _body.position = ccp(0.5, 0.5);
+//        _body.position = ccp(self.boundingBox.origin.x + self.boundingBox.size.width / 2, self.boundingBox.origin.y + self.boundingBox.size.height / 2);
