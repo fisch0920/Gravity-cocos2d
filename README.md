@@ -2,6 +2,8 @@
 
 iOS n-body simulation combined visualized with metaballs. Physics and graphics provided by cocos2d.
 
+![Gravity](https://raw.github.com/fisch0920/Gravity-cocos2d/master/Images/demo.gif)
+
 ## Ideas / Inspiration:
     * Rorschach Test
     * FarCry 3 intro screen
