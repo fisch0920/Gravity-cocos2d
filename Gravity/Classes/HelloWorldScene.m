@@ -38,7 +38,7 @@
         
         _physicsWorld = [CCPhysicsNode node];
 //        _physicsWorld.gravity = ccp(0, -1);
-        _physicsWorld.debugDraw = YES;
+        _physicsWorld.debugDraw = NO;
         _physicsWorld.collisionDelegate = self;
         _physicsWorld.positionType = CCPositionTypeNormalized;
         _physicsWorld.position = ccp(0.5, 0.5);
