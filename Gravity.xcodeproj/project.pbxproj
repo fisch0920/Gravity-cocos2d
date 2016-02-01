@@ -13,6 +13,7 @@
 		3D14FEB818E22C3C0034147D /* temp in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB718E22C3C0034147D /* temp */; };
 		3D14FEBA18E233570034147D /* GravitationalBody.vs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEB918E233570034147D /* GravitationalBody.vs */; };
 		3D14FEBC18E233600034147D /* GravitationalBody.fs in Resources */ = {isa = PBXBuildFile; fileRef = 3D14FEBB18E233600034147D /* GravitationalBody.fs */; };
+		3D83F9831C5FC37F003BE822 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D83F9821C5FC37F003BE822 /* CoreMotion.framework */; };
 		3DB9EE381B40B1D100244F20 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB9EE371B40B1D100244F20 /* libz.dylib */; };
 		3DC3952218D7753F00EB911F /* GravitationalBodyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3952118D7753F00EB911F /* GravitationalBodyNode.m */; };
 		3DD704CF18D393F500C4135E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD704CE18D393F500C4135E /* QuartzCore.framework */; };
@@ -241,6 +242,7 @@
 		3D14FEB718E22C3C0034147D /* temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp; sourceTree = "<group>"; };
 		3D14FEB918E233570034147D /* GravitationalBody.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBody.vs; sourceTree = "<group>"; };
 		3D14FEBB18E233600034147D /* GravitationalBody.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GravitationalBody.fs; sourceTree = "<group>"; };
+		3D83F9821C5FC37F003BE822 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3DB9EE371B40B1D100244F20 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3DC3952018D7753F00EB911F /* GravitationalBodyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravitationalBodyNode.h; sourceTree = "<group>"; };
 		3DC3952118D7753F00EB911F /* GravitationalBodyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravitationalBodyNode.m; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D83F9831C5FC37F003BE822 /* CoreMotion.framework in Frameworks */,
 				3DB9EE381B40B1D100244F20 /* libz.dylib in Frameworks */,
 				3DD704E518D393F500C4135E /* libObjectiveChipmunk.a in Frameworks */,
 				3DD704D318D393F500C4135E /* OpenAL.framework in Frameworks */,
@@ -719,6 +722,7 @@
 		3DD704CD18D393F500C4135E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D83F9821C5FC37F003BE822 /* CoreMotion.framework */,
 				3DB9EE371B40B1D100244F20 /* libz.dylib */,
 				3DD704CE18D393F500C4135E /* QuartzCore.framework */,
 				3DD704D018D393F500C4135E /* OpenGLES.framework */,
@@ -1969,6 +1973,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
@@ -1994,6 +1999,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;

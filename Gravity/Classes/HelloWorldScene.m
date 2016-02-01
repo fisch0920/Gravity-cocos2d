@@ -11,6 +11,7 @@
 #import "IntroScene.h"
 #import "GravitationalBody.h"
 #import "GravitationalBodyNode.h"
+@import CoreMotion;
 
 @implementation HelloWorldScene
 {
@@ -19,6 +20,11 @@
     
     UISlider *_slider;
     GravitationalBodyNode *_node;
+    
+    NSOperationQueue *_queue;
+    CMMotionManager *_manager;
+    
+    CMAttitude *_referenceAttitude;
 }
 
 #pragma mark - Create & Destroy
@@ -31,6 +37,8 @@
 - (id)init
 {
     if (self = [super init]) {
+        _queue = [NSOperationQueue new];
+        
         self.userInteractionEnabled = YES;
         
         CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:1.0f]];
@@ -124,12 +132,30 @@
     [_slider addTarget:self action:@selector(thresholdSliderChanged:) forControlEvents:UIControlEventValueChanged];
     _slider.backgroundColor = [UIColor clearColor];
     [[[CCDirector sharedDirector] view] addSubview:_slider];
+    
+    _manager = [CMMotionManager new];
+    
+    if (_manager.deviceMotionAvailable) {
+        [_manager startDeviceMotionUpdatesToQueue:_queue
+                                      withHandler:
+         ^(CMDeviceMotion *data, NSError *error) {
+             if (!_referenceAttitude) {
+                 _referenceAttitude = _manager.deviceMotion.attitude;
+             }
+             
+             [data.attitude multiplyByInverseOfAttitude:_referenceAttitude];
+             double rotation = data.attitude.yaw * 180.0 / M_PI;
+             
+             _body.rotation = rotation;
+         }];
+    }
 }
 
 - (void)onExit
 {
+    [_manager stopDeviceMotionUpdates];
     [_slider removeFromSuperview];
-    _slider = nil;
+    _referenceAttitude = nil;
     
     [super onExit];
 }
