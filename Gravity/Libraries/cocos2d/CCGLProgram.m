@@ -154,7 +154,6 @@ static NSString * g_extensionStr = @EXTENSION_STRING;
     
 #ifdef __IPHONE_9_0
     // BEGIN workaround for Xcode 7 bug
-    NSLog(@"USING IOS9 shaders");
     static NSString * g_extensionStr = @EXTENSION_STRING;
     // BEGIN workaround for Xcode 7 ios9----
     BOOL hasExtension = NO;
@@ -184,8 +183,6 @@ static NSString * g_extensionStr = @EXTENSION_STRING;
     };
     // END workaround for Xcode 7 bug
 #else
-    NSLog(@"USING IOS8 shaders");
-    
     const GLchar *sources[] = {
 #ifdef __CC_PLATFORM_IOS
         (type == GL_VERTEX_SHADER ? "precision highp float;\n" : "precision mediump float;\n"),
