@@ -10,12 +10,11 @@ uniform float u_threshold;
 void main()
 {
     vec4 c = texture2D(CC_Texture0, v_texCoord);
-    float threshold = u_threshold;//0.905;
+    float threshold = u_threshold;
     
     if (c.r >= threshold) {
         gl_FragColor = v_fragmentColor * ((c - vec4(threshold)) / (1.0 - threshold));
     } else {
         discard;
-//        gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
     }
 }

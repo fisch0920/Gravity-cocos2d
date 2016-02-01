@@ -144,7 +144,7 @@
              }
              
              [data.attitude multiplyByInverseOfAttitude:_referenceAttitude];
-             double rotation = -data.attitude.yaw * 180.0 / M_PI;
+             double rotation = data.attitude.yaw * 180.0 / M_PI;
              
              _body.rotation = rotation;
          }];
