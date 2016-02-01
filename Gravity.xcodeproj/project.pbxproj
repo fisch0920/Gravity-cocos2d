@@ -1630,7 +1630,7 @@
 				ORGANIZATIONNAME = "Transitive Bullshit";
 				TargetAttributes = {
 					3DD704CA18D393F500C4135E = {
-						DevelopmentTeam = F5FXT939T3;
+						DevelopmentTeam = ENUHJWD737;
 					};
 				};
 			};
@@ -1970,8 +1970,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gravity/Supporting Files/Prefix.pch";
@@ -1995,8 +1995,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gravity/Supporting Files/Prefix.pch";
 				HEADER_SEARCH_PATHS = (
